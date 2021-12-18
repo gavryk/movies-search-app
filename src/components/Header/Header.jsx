@@ -7,15 +7,15 @@ const Header = () => {
       <div className={style.logo}>
         <h2>Movie-Search</h2>
       </div>
-      <div class="input-group">
+      <div className="input-group">
         <input
           type="text"
-          class="form-control"
+          className="form-control"
           placeholder="Search Movie..."
           aria-label="Search Movie..."
           aria-describedby="button-addon2"
         />
-        <button class="btn btn-outline-success" type="button">
+        <button className="btn btn-outline-success" type="button">
           Search
         </button>
       </div>

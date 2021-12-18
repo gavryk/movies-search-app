@@ -1,0 +1,15 @@
+.header {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  grid-gap: 15px;
+  align-items: center;
+  padding: 20px 30px;
+  background-color: #4e5d6c;
+  .logo {
+    h2 {
+      margin-bottom: 0;
+      color: #fff;
+      font-weight: 500;
+    }
+  }
+}

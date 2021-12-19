@@ -1,12 +1,13 @@
 import React from "react";
 import noPoster from "../../assets/img/no-poster.jpg";
 import style from "./Card.module.scss";
+import { Link } from "react-router-dom";
 const urlPoster = "https://image.tmdb.org/t/p/w500";
 
-const Card = ({id, poster_path, title, name, vote_average, overview, ...props}) => {
-  console.log(props);
+const Card = ({id, poster_path, title, name, vote_average, overview}) => {
+  
   return (
-    <div className={style.card} key={id}>
+    <Link to={`/movie/${id}`} className={style.card} key={id}>
       <div className={style.cardImage}>
         <img
           src={
@@ -23,7 +24,7 @@ const Card = ({id, poster_path, title, name, vote_average, overview, ...props}) 
         </h5>
         <p className="card-text">{overview}</p>
       </div>
-    </div>
+    </Link>
   );
 };
 

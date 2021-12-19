@@ -1,9 +1,23 @@
 .card {
   position: relative;
   box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+  color: #000;
+  transition: all .4s ease-in-out;
+  &:hover {
+    color: #000;
+    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.2);
+    .cardImage {
+      img {
+        transform: scale(1.1);
+      }
+    }
+  }
   .cardImage {
+    overflow: hidden;
     height: auto;
     img {
+      transition: all .6s ease-in-out;
       height: 100%;
       width: 100%;
       object-fit: cover;

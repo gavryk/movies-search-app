@@ -10,7 +10,7 @@ const Home = ({ movies }) => {
         <div className={style.movies}>
           {movies &&
             movies.map((movie) => (
-              <Card {...movie }/>
+              <Card key={ movie.id } {...movie }/>
             ))}
         </div>
       </div>

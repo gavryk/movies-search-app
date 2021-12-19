@@ -4,13 +4,12 @@ import { fetchMovies } from "./redux/actions/movies";
 import { Route, Routes } from "react-router-dom";
 import { Header } from "./components";
 import Home from "./pages/Home/Home";
+import Movie from "./pages/Movie/Movie";
 
 
 const App = () => {
   const dispatch = useDispatch();
   const movies = useSelector(({ movies }) => movies.items);
-
-  console.log(movies);
 
   useEffect(() => {
     dispatch(fetchMovies());
@@ -22,7 +21,7 @@ const App = () => {
       <div className="movies-wrapper">
         <Routes>
           <Route exact path="/" element={<Home movies={movies} />} />
-          {/* <Route exact path="/movie" element={<Home movies={movies} />} /> */}
+          <Route exact path="/movie/:id" element={<Movie />} />
         </Routes>
       </div>
     </div>

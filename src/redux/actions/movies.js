@@ -2,7 +2,7 @@ import axios from "axios";
 const searchApi =
   "https://api.themoviedb.org/3/search/multi?api_key=efea5188a7f43aa1303c12cb1ad8a604&language=en&query=";
 const api =
-  "https://api.themoviedb.org/3/trending/all/week?api_key=efea5188a7f43aa1303c12cb1ad8a604&language=en";  
+  "https://api.themoviedb.org/3/trending/all/week?api_key=efea5188a7f43aa1303c12cb1ad8a604&language=en";
 
 //"server": "npx json-server --watch db.json --port=3001"
 export const fetchMovies = () => {

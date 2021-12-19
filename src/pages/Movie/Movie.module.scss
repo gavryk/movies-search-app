@@ -21,15 +21,38 @@
   }
 
   .info {
-      display: grid;
-      grid-template-columns: 400px auto;
-      grid-gap: 15px;
-      .poster {
-          position: relative;
-          img {
-              max-width: 100%;
-              object-fit: cover;
-          }
+    display: grid;
+    grid-template-columns: 400px auto;
+    grid-gap: 15px;
+    .poster {
+      position: relative;
+      img {
+        max-width: 100%;
+        object-fit: cover;
       }
+      .buttons {
+        padding: 20px 0;
+        display: grid;
+        grid-template-columns: repeat(1, minmax(200px, auto));
+        justify-content: center;
+        row-gap: 15px;
+        .btn {
+          background-color: rgb(20, 170, 20);
+          color: #fff;
+          text-decoration: none;
+          padding: 10px;
+          border-radius: 10px;
+          text-align: center;
+          font-weight: 500;
+          font-size: 16px;
+        }
+      }
+    }
+
+    .about {
+        p {
+            font-size: 24px;
+        }
+    }
   }
 }

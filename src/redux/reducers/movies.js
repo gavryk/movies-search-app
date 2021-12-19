@@ -1,5 +1,6 @@
 const initState = {
-  items: []
+  items: [],
+  isLoading: true
 };
 
 const movies = (state = initState, action) => {
@@ -8,6 +9,11 @@ const movies = (state = initState, action) => {
       return {
         ...state,
         items: action.payload,
+      };
+    case "SET_LOADING":
+      return {
+        ...state,
+        isLoading: action.payload,
       };
     default:
       return state;

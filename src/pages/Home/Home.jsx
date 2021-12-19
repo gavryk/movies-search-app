@@ -1,18 +1,25 @@
 import React from 'react'
 import style from './Home.module.scss';
-import { Card } from "../../components";
+import { Card, Loader } from "../../components";
+import { useSelector } from 'react-redux';
 
 const Home = ({ movies }) => {
+    const isLoading = useSelector(({ movies }) => movies.isLoading);
+    console.log(isLoading);
 
     return (
       <div className={style.mainMoviesWrapper}>
         <h2 className={style.pageTitle}>Movies</h2>
-        <div className={style.movies}>
-          {movies &&
-            movies.map((movie) => (
-              <Card key={ movie.id } {...movie }/>
-            ))}
-        </div>
+        {
+        !isLoading 
+          ? (
+            <div className={style.movies}>
+              {movies &&
+                movies.map((movie) => <Card key={movie.id} {...movie} />)}
+            </div>
+          )
+          : <Loader/>
+        }
       </div>
     );
 }

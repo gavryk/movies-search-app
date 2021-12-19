@@ -11,14 +11,13 @@ const urlPoster = "https://image.tmdb.org/t/p/w500";
 
 const Movie = () => {
   const dispatch = useDispatch();
-  const { id } = useParams();
+  const { id, type } = useParams();
   const movie = useSelector(({ movie }) => movie.item);
-  const movieType = useSelector(({ movie }) => movie.type);
   const isLoading = useSelector(({ movie }) => movie.isLoading);
 
   useEffect(() => {
-    dispatch(fetchMovieInfo(id, movieType));
-  }, [dispatch, id, movieType]);
+    dispatch(fetchMovieInfo(id, type));
+  }, [dispatch, id, type]);
 
   return (
     <>

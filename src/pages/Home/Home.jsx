@@ -5,8 +5,7 @@ import { useSelector } from 'react-redux';
 
 const Home = ({ movies }) => {
     const isLoading = useSelector(({ movies }) => movies.isLoading);
-    console.log(isLoading);
-
+    
     return (
       <div className={style.mainMoviesWrapper}>
         <h2 className={style.pageTitle}>Movies</h2>

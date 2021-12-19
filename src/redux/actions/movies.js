@@ -9,7 +9,7 @@ export const fetchMovies = () => {
   return (dispatch) => {
     axios.get(`${api}`).then(({ data }) => {
       dispatch(setMovies(data.results));
-      dispatch(setLoading(false));
+      dispatch(setLoad(false));
     });
   };
 };
@@ -18,7 +18,7 @@ export const searchMovies = (searchText = "") => {
   return (dispatch) => {
     axios.get(`${searchApi}'${searchText}'`).then(({ data }) => {
       dispatch(setMovies(data.results));
-      dispatch(setLoading(false));
+      dispatch(setLoad(false));
     });
   };
 };
@@ -30,9 +30,9 @@ export const setMovies = (items) => {
   };
 };
 
-export const setLoading = (type) => {
+export const setLoad = (type) => {
   return {
-    type: "SET_LOADING",
+    type: "SET_LOAD",
     payload: type,
   };
 };

@@ -10,7 +10,7 @@ const movies = (state = initState, action) => {
         ...state,
         items: action.payload,
       };
-    case "SET_LOADING":
+    case "SET_LOAD":
       return {
         ...state,
         isLoading: action.payload,

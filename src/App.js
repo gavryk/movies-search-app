@@ -15,13 +15,14 @@ const App = () => {
     dispatch(fetchMovies());
   }, [dispatch]);
 
+
   return (
     <div className="App">
       <Header />
       <div className="movies-wrapper">
         <Routes>
           <Route exact path="/" element={<Home movies={movies} />} />
-          <Route exact path="/movie/:id" element={<Movie />} />
+          <Route exact path="/:type/:id" element={<Movie />} />
         </Routes>
       </div>
     </div>

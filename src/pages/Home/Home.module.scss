@@ -1,11 +1,24 @@
 .mainMoviesWrapper {
-    .pageTitle {
-        padding: 20px 0;
-        font-size: 54px;
+    padding: 40px 0;
+  .pageTitle {
+    padding-bottom: 20px;
+    font-size: 54px;
+  }
+  .movies {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 30px;
+    .card {
+        position: relative;
+        box-shadow: 0 0 10px 5px rgba(0, 0, 0, .1);
+        .cardImage {
+            height: auto;
+            img {
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+            }
+        }
     }
-    .movies {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-gap: 15px;
-    }
+  }
 }

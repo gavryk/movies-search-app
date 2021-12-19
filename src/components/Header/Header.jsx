@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { fetchMovies } from "../../redux/actions/movies";
+import { fetchMovies, searchMovies } from "../../redux/actions/movies";
 import style from "./Header.module.scss";
 
 const Header = () => {
@@ -14,8 +14,12 @@ const Header = () => {
   }
 
   const submitSearch = () => {
-    dispatch(fetchMovies(inputText));
+    dispatch(searchMovies(inputText));
     setInputText('');
+  }
+
+  const goHome = () => {
+    dispatch(fetchMovies());
   }
 
   const enterHandler = (e) => {
@@ -26,7 +30,7 @@ const Header = () => {
 
   return (
     <div className={style.header}>
-      <Link to="/" onClick={submitSearch} className={style.logo}>
+      <Link to="/" onClick={goHome} className={style.logo}>
         <h2>Movie-Search</h2>
       </Link>
       <div className="input-group">

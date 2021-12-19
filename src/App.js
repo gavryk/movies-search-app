@@ -10,7 +10,7 @@ const App = () => {
   const dispatch = useDispatch();
   const movies = useSelector(({ movies }) => movies.items);
 
-  console.log(Routes);
+  console.log();
 
   useEffect(() => {
     dispatch(fetchMovies());

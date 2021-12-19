@@ -18,9 +18,15 @@ const Header = () => {
     setInputText('');
   }
 
+  const enterHandler = (e) => {
+    if (e.key === "Enter") {
+      submitSearch();
+    }
+  }
+
   return (
     <div className={style.header}>
-      <Link to="/" className={style.logo}>
+      <Link to="/" onClick={submitSearch} className={style.logo}>
         <h2>Movie-Search</h2>
       </Link>
       <div className="input-group">
@@ -32,6 +38,7 @@ const Header = () => {
           aria-describedby="button-addon2"
           onChange={inputHandler}
           value={inputText}
+          onKeyDown={enterHandler}
         />
         <button
           className="btn btn-outline-success"

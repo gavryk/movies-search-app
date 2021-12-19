@@ -1,12 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
+import { fetchMovies } from "../../redux/actions/movies";
 import style from "./Header.module.scss";
 
 const Header = () => {
+  const dispatch = useDispatch();
+  const [inputText, setInputText] = useState('');
+
+  const inputHandler = (e) => {
+    let text = e.target.value;
+    setInputText(text);
+  }
+
+  const submitSearch = () => {
+    dispatch(fetchMovies(inputText));
+    setInputText('');
+  }
+
   return (
     <div className={style.header}>
-      <div className={style.logo}>
+      <Link to="/" className={style.logo}>
         <h2>Movie-Search</h2>
-      </div>
+      </Link>
       <div className="input-group">
         <input
           type="text"
@@ -14,8 +30,14 @@ const Header = () => {
           placeholder="Search Movie..."
           aria-label="Search Movie..."
           aria-describedby="button-addon2"
+          onChange={inputHandler}
+          value={inputText}
         />
-        <button className="btn btn-outline-success" type="button">
+        <button
+          className="btn btn-outline-success"
+          type="button"
+          onClick={() => submitSearch()}
+        >
           Search
         </button>
       </div>

@@ -1,3 +1,11 @@
 .mainMoviesWrapper {
-    
+    .pageTitle {
+        padding: 20px 0;
+        font-size: 54px;
+    }
+    .movies {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 15px;
+    }
 }

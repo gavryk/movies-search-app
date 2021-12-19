@@ -1,23 +1,30 @@
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { fetchMovies } from '../../redux/actions/movies';
+import React from 'react'
 import style from './Home.module.scss';
+const urlPoster = "https://image.tmdb.org/t/p/w500";
 
-const Home = () => {
-    const dispatch = useDispatch();
-    const movies = useSelector(({ movies }) => movies.items);
-    
-    console.log(movies);
-
-    useEffect(() => {
-        dispatch(fetchMovies());
-    }, [dispatch])
+const Home = ({ movies }) => {
 
     return (
       <div className={style.mainMoviesWrapper}>
-        <h2>Home Page</h2>
-        <div className="movies">
-          {movies && movies.map((movie) => <h2 key={movie.id}>{movie.original_title}</h2>)}
+        <h2 className={style.pageTitle}>Movies</h2>
+        <div className={style.movies}>
+          {movies &&
+            movies.map((movie) => (
+              <div className="card" key={movie.id}>
+                <img
+                  src={`${urlPoster}${movie.backdrop_path}`}
+                  className="card-img-top"
+                  alt="..."
+                />
+                <div className="card-body">
+                  <h5 className="card-title">Card title</h5>
+                  <p className="card-text">
+                    Some quick example text to build on the card title and make
+                    up the bulk of the card's content.
+                  </p>
+                </div>
+              </div>
+            ))}
         </div>
       </div>
     );

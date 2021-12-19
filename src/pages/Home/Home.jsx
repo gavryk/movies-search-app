@@ -24,8 +24,11 @@ const Home = ({ movies }) => {
                   />
                 </div>
                 <div className="card-body">
-                  <h5 className="card-title">
+                  <h5 className={style.title}>
                     {movie.title ? movie.title : movie.name}
+                    <span className={ style.rate }>
+                      Rate: {movie.vote_average}
+                    </span>
                   </h5>
                   <p className="card-text">{movie.overview}</p>
                 </div>

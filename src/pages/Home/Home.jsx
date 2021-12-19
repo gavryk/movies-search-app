@@ -1,5 +1,6 @@
 import React from 'react'
 import style from './Home.module.scss';
+import noPoster from "../../assets/img/no-poster.jpg";
 const urlPoster = "https://image.tmdb.org/t/p/w500";
 
 const Home = ({ movies }) => {
@@ -12,7 +13,7 @@ const Home = ({ movies }) => {
             movies.map((movie) => (
               <div className="card" key={movie.id}>
                 <img
-                  src={`${urlPoster}${movie.backdrop_path}`}
+                  src={movie.backdrop_path ? `${urlPoster}${movie.backdrop_path}` : noPoster}
                   className="card-img-top"
                   alt="..."
                 />

@@ -1,7 +1,6 @@
 import React from 'react'
 import style from './Home.module.scss';
-import noPoster from "../../assets/img/no-poster.jpg";
-const urlPoster = "https://image.tmdb.org/t/p/w500";
+import { Card } from "../../components";
 
 const Home = ({ movies }) => {
 
@@ -11,28 +10,7 @@ const Home = ({ movies }) => {
         <div className={style.movies}>
           {movies &&
             movies.map((movie) => (
-              <div className={style.card} key={movie.id}>
-                <div className={style.cardImage}>
-                  <img
-                    src={
-                      movie.poster_path
-                        ? `${urlPoster}${movie.poster_path}`
-                        : noPoster
-                    }
-                    className="card-img-top"
-                    alt="..."
-                  />
-                </div>
-                <div className="card-body">
-                  <h5 className={style.title}>
-                    {movie.title ? movie.title : movie.name}
-                    <span className={ style.rate }>
-                      Rate: {movie.vote_average}
-                    </span>
-                  </h5>
-                  <p className="card-text">{movie.overview}</p>
-                </div>
-              </div>
+              <Card {...movie }/>
             ))}
         </div>
       </div>

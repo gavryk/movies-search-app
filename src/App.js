@@ -22,6 +22,7 @@ const App = () => {
       <div className="movies-wrapper">
         <Routes>
           <Route exact path="/" element={<Home movies={movies} />} />
+          {/* <Route exact path="/movie" element={<Home movies={movies} />} /> */}
         </Routes>
       </div>
     </div>

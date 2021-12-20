@@ -24,12 +24,16 @@ const Movie = () => {
       {!isLoading ? (
         <div className={style.moviePage}>
           <div className={style.pageTitle}>
-            <h1>{movie.name ? movie.name : movie.title}</h1>
+            <div>
+              <h1>{movie.name ? movie.name : movie.title}</h1>
+              <span>{ movie.tagline && movie.tagline }</span>
+            </div>
             <span className={style.rate}>Rate: {movie.vote_average}</span>
           </div>
 
           <div className={style.info}>
             <div className={style.poster}>
+              { movie.adult && <span class={ style.adult }>18+</span> }
               <img
                 src={
                   movie.poster_path
@@ -39,27 +43,39 @@ const Movie = () => {
                 alt="Poster"
               />
               <div className={style.buttons}>
-                <a
-                  href={movie.homepage}
-                  target="_blank"
-                  rel="noreferrer"
-                  className={style.btn}
-                >
-                  Homepage
-                </a>
-                <a
-                  href={`http://imdb.com/title/${movie.imdb_id}`}
-                  target="_blank"
-                  rel="noreferrer"
-                  className={style.btn}
-                >
-                  IMDb
-                </a>
+                {movie.homepage && (
+                  <a
+                    href={movie.homepage}
+                    target="_blank"
+                    rel="noreferrer"
+                    className={style.btn}
+                  >
+                    Homepage
+                  </a>
+                )}
+                {movie.imdb_id && (
+                  <a
+                    href={`http://imdb.com/title/${movie.imdb_id}`}
+                    target="_blank"
+                    rel="noreferrer"
+                    className={style.btn}
+                  >
+                    IMDb
+                  </a>
+                )}
               </div>
             </div>
 
             <div className={style.about}>
               <p>{movie.overview}</p>
+              {movie.genres && (
+                <ul className={style.genres}>
+                  <h3>Genres:</h3>
+                  {movie.genres.map((gen, index) => (
+                    <li key={`${gen.name}_${index}`}>"{gen.name}"</li>
+                  ))}
+                </ul>
+              )}
             </div>
           </div>
         </div>

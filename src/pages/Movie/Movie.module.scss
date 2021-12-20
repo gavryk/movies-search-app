@@ -53,6 +53,37 @@
         p {
             font-size: 24px;
         }
+        .genres {
+          padding: 0;
+          list-style: none;
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          flex-wrap: wrap;
+          flex-direction: row;
+          h3 {
+            font-size: 22px;
+            margin-right: 10px;
+            margin-bottom: 0;
+            line-height: 1;
+          }
+          li {
+            font-size: 22px;
+            font-weight: 400;
+            margin-right: 10px;
+            line-height: 1;
+            position: relative;
+            &:after {
+              content: ',';
+            }
+            &:last-child {
+              margin-right: 0;
+              &:after {
+                display: none;
+              }
+            }
+          }
+        }
     }
   }
 }

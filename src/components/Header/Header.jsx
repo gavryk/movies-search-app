@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { fetchMovies, searchMovies } from "../../redux/actions/movies";
 import style from "./Header.module.scss";
 
 const Header = () => {
   const dispatch = useDispatch();
+  let navigate = useNavigate();
   const [inputText, setInputText] = useState('');
 
   const inputHandler = (e) => {
@@ -16,6 +17,7 @@ const Header = () => {
   const submitSearch = () => {
     dispatch(searchMovies(inputText));
     setInputText('');
+    navigate("/");
   }
 
   const goHome = () => {

@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { fetchMovies, searchMovies } from "../../redux/actions/movies";
 import style from "./Header.module.scss";
 
-const Header = () => {
+const Header = ({ pageNum }) => {
   const dispatch = useDispatch();
   let navigate = useNavigate();
   const [inputText, setInputText] = useState('');
@@ -21,7 +21,7 @@ const Header = () => {
   }
 
   const goHome = () => {
-    dispatch(fetchMovies());
+    dispatch(fetchMovies(pageNum));
   }
 
   const enterHandler = (e) => {

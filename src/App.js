@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchMovies } from "./redux/actions/movies";
+import { fetchMovies, setPageNum } from "./redux/actions/movies";
 import { Route, Routes } from "react-router-dom";
 import { Header } from "./components";
 import Home from "./pages/Home/Home";
@@ -17,12 +17,12 @@ const App = () => {
   }, [dispatch, pageNum]);
 
   const changePageNum = (num) => {
-    console.log(num);
+    dispatch(setPageNum(num));
   }
 
   return (
     <div className="App">
-      <Header />
+      <Header pageNum={pageNum} />
       <div className="movies-wrapper">
         <Routes>
           <Route exact path="/" element={<Home movies={movies} changePage={changePageNum} />} />

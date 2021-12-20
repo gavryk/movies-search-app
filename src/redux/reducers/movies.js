@@ -16,6 +16,11 @@ const movies = (state = initState, action) => {
         ...state,
         isLoading: action.payload,
       };
+    case "SET_PAGE_NUM":
+      return {
+        ...state,
+        pageNum: action.payload
+      }  
     default:
       return state;
   }

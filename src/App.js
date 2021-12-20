@@ -9,19 +9,23 @@ import Movie from "./pages/Movie/Movie";
 
 const App = () => {
   const dispatch = useDispatch();
-  const movies = useSelector(({ movies }) => movies.items);
+  const movies = useSelector(({ movies }) => movies.items.results);
+  const pageNum = useSelector(({ movies }) => movies.pageNum);
 
   useEffect(() => {
-    dispatch(fetchMovies());
-  }, [dispatch]);
+    dispatch(fetchMovies(pageNum));
+  }, [dispatch, pageNum]);
 
+  const changePageNum = (num) => {
+    console.log(num);
+  }
 
   return (
     <div className="App">
       <Header />
       <div className="movies-wrapper">
         <Routes>
-          <Route exact path="/" element={<Home movies={movies} />} />
+          <Route exact path="/" element={<Home movies={movies} changePage={changePageNum} />} />
           <Route exact path="/:type/:id" element={<Movie />} />
         </Routes>
       </div>

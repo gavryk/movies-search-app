@@ -1,14 +1,15 @@
 import React from 'react'
 import style from './Home.module.scss';
-import { Card, Loader } from "../../components";
+import { Card, Loader, Paginator } from "../../components";
 import { useSelector } from 'react-redux';
 
-const Home = ({ movies }) => {
+const Home = ({ movies, changePage }) => {
     const isLoading = useSelector(({ movies }) => movies.isLoading);
-    
+    const { page, total_pages } = useSelector(({ movies }) => movies.items);
+
     return (
       <div className={style.mainMoviesWrapper}>
-        <h2 className={style.pageTitle}>Movies222</h2>
+        <h2 className={style.pageTitle}>Movies</h2>
         {
         !isLoading 
           ? (
@@ -19,6 +20,7 @@ const Home = ({ movies }) => {
           )
           : <Loader/>
         }
+        <Paginator page={ page } totalPages={ total_pages } onChangedPage={ changePage } />
       </div>
     );
 }

@@ -1,6 +1,7 @@
 const initState = {
   items: [],
-  isLoading: true
+  isLoading: true,
+  pageNum: 1
 };
 
 const movies = (state = initState, action) => {

@@ -14,6 +14,21 @@ const Movie = () => {
   const { id, type } = useParams();
   const movie = useSelector(({ movie }) => movie.item);
   const isLoading = useSelector(({ movie }) => movie.isLoading);
+  const releaseDate = new Date(movie.release_date);
+  const monthNames = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
 
   useEffect(() => {
     dispatch(fetchMovieInfo(id, type));
@@ -26,14 +41,14 @@ const Movie = () => {
           <div className={style.pageTitle}>
             <div>
               <h1>{movie.name ? movie.name : movie.title}</h1>
-              <span>{ movie.tagline && movie.tagline }</span>
+              <span>{movie.tagline && movie.tagline}</span>
             </div>
             <span className={style.rate}>Rate: {movie.vote_average}</span>
           </div>
 
           <div className={style.info}>
             <div className={style.poster}>
-              { movie.adult && <span class={ style.adult }>18+</span> }
+              {movie.adult && <span class={style.adult}>18+</span>}
               <img
                 src={
                   movie.poster_path
@@ -75,6 +90,9 @@ const Movie = () => {
                     <li key={`${gen.name}_${index}`}>"{gen.name}"</li>
                   ))}
                 </ul>
+              )}
+              {movie.release_date && (
+                <h4>Date: {`${releaseDate.getDate()} ${monthNames[releaseDate.getMonth()]} ${releaseDate.getFullYear()}`}</h4>
               )}
             </div>
           </div>

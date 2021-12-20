@@ -8,7 +8,7 @@ const Home = ({ movies }) => {
     
     return (
       <div className={style.mainMoviesWrapper}>
-        <h2 className={style.pageTitle}>Movies</h2>
+        <h2 className={style.pageTitle}>Movies222</h2>
         {
         !isLoading 
           ? (

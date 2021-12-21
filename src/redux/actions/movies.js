@@ -1,10 +1,10 @@
 import axios from "axios";
 
-export const fetchMovies = (pageNum) => {
+export const fetchMovies = (mediaType, pageNum) => {
   return (dispatch) => {
     axios
       .get(
-        `https://api.themoviedb.org/3/trending/all/week?api_key=efea5188a7f43aa1303c12cb1ad8a604&language=en&page=${pageNum}`
+        `https://api.themoviedb.org/3/trending/${mediaType}/week?api_key=efea5188a7f43aa1303c12cb1ad8a604&language=en&page=${pageNum}`
       )
       .then(({ data }) => {
         dispatch(setMovies(data));
@@ -32,4 +32,11 @@ export const setPageNum = (num) => {
     type: "SET_PAGE_NUM",
     payload: num
   }
-}
+};
+
+export const setType = (type) => {
+  return {
+    type: "SET_TYPE",
+    payload: type,
+  };
+};

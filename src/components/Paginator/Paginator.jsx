@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import style from './Paginator.module.scss';
 
 const Paginator = ({ page, totalPages, onChangedPage }) => {
   let pages = [];
@@ -14,7 +15,7 @@ const Paginator = ({ page, totalPages, onChangedPage }) => {
   let rightPortionPageNumber = portionNumber * 20;
 
   return (
-    <div>
+    <div className={style.paginatorWrapper}>
       <nav
         aria-label="page_navigation"
         className="d-flex justify-content-center p-2"
@@ -23,7 +24,7 @@ const Paginator = ({ page, totalPages, onChangedPage }) => {
           {/*<li className="page-item"><a className="page-link" href="#">Previous</a></li>*/}
           {portionNumber > 1 && (
             <li
-              className="page-item"
+              className={`${ style.pageItem } pageItem`}
               onClick={() => {
                 setPortionNumber(portionNumber - 1);
               }}
@@ -42,10 +43,10 @@ const Paginator = ({ page, totalPages, onChangedPage }) => {
                   onClick={(e) => {
                     onChangedPage(p);
                   }}
-                  className={`page-item ${page === p ? "currentPage" : ""}`}
+                  className={`page-item ${ style.pageItem } ${page === p ? style.currentPage : ""}`}
                 >
                   <span
-                    className={`${page === p ? "text-white" : ""}  page-link`}
+                    className={`${page === p ? "text-white" : ""} page-link`}
                   >
                     {p}
                   </span>
@@ -54,7 +55,7 @@ const Paginator = ({ page, totalPages, onChangedPage }) => {
             })}
           {portionCount > portionNumber && (
             <li
-              className="page-item"
+              className={`page-item ${ style.pageItem }`}
               onClick={() => {
                 setPortionNumber(portionNumber + 1);
               }}

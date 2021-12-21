@@ -7,17 +7,17 @@ import Home from "./pages/Home/Home";
 import Movie from "./pages/Movie/Movie";
 import { Search } from "./pages";
 
-
 const App = () => {
   const dispatch = useDispatch();
   const movies = useSelector(({ movies }) => movies.items.results);
-  const { pageNum, searchText } = useSelector(({ movies }) => movies);
+  const { pageNum, searchText, mediaType } = useSelector(({ movies }) => movies);
 
   useEffect(() => {
-    dispatch(fetchMovies(pageNum));
-  }, [dispatch, pageNum]);
+    dispatch(fetchMovies(mediaType, pageNum));
+  }, [dispatch, pageNum, mediaType]);
 
   const changePageNum = (num) => {
+    window.scrollTo(0, 0);
     dispatch(setPageNum(num));
   }
 

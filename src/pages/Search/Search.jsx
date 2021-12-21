@@ -10,7 +10,7 @@ const Search = () => {
   const isLoading = useSelector(({ search }) => search.isLoading);
   const searchText = useSelector(({ search }) => search.searchText);
   const pageNum = useSelector(({ search }) => search.pageNum);
-  const { page, total_pages } = useSelector(({ search }) => search.items);
+  const { page, total_pages, total_results } = useSelector(({ search }) => search.items);
 
   useEffect(() => {
     dispatch(searchMovies(searchText, pageNum));
@@ -23,7 +23,10 @@ const Search = () => {
 
   return (
     <div className={style.mainMoviesWrapper}>
-      <h2 className={style.pageTitle}>Search Movies: "{searchText}"</h2>
+      <div className={style.pageTitleBlock}>
+        <h2 className={style.pageTitle}>Search Movies: "{searchText}"</h2>
+        <h4>Results: {total_results} movies</h4>
+      </div>
       {!isLoading ? (
         <>
           <div className={style.movies}>

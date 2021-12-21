@@ -1,8 +1,15 @@
 .mainMoviesWrapper {
-    padding: 40px 0;
-  .pageTitle {
-    padding-bottom: 20px;
-    font-size: 54px;
+  padding: 40px 0;
+  .pageTitleBlock {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    flex-direction: row;
+    .pageTitle {
+      padding-bottom: 20px;
+      font-size: 54px;
+    }
   }
   .movies {
     display: grid;

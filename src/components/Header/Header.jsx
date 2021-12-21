@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { fetchMovies, searchMovies } from "../../redux/actions/movies";
+import { fetchMovies } from "../../redux/actions/movies";
+import { searchMovies, setSearchText } from "../../redux/actions/search";
 import style from "./Header.module.scss";
 
 const Header = ({ pageNum }) => {
@@ -16,8 +17,9 @@ const Header = ({ pageNum }) => {
 
   const submitSearch = () => {
     dispatch(searchMovies(inputText));
+    dispatch(setSearchText(inputText));
     setInputText('');
-    navigate("/");
+    navigate("/search");
   }
 
   const goHome = () => {

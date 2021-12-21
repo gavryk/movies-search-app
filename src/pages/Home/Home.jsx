@@ -9,18 +9,20 @@ const Home = ({ movies, changePage }) => {
 
     return (
       <div className={style.mainMoviesWrapper}>
-        <h2 className={style.pageTitle}>Movies</h2>
-        {
-        !isLoading 
-          ? (
-            <div className={style.movies}>
-              {movies &&
-                movies.map((movie) => <Card key={movie.id} {...movie} />)}
-            </div>
-          )
-          : <Loader/>
-        }
-        <Paginator page={ page } totalPages={ total_pages } onChangedPage={ changePage } />
+        <h2 className={style.pageTitle}>Trending Movies</h2>
+        {!isLoading ? (
+          <div className={style.movies}>
+            {movies &&
+              movies.map((movie) => <Card key={movie.id} {...movie} />)}
+          </div>
+        ) : (
+          <Loader />
+        )}
+        <Paginator
+          page={page}
+          totalPages={total_pages}
+          onChangedPage={changePage}
+        />
       </div>
     );
 }

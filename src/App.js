@@ -5,6 +5,7 @@ import { Route, Routes } from "react-router-dom";
 import { Header } from "./components";
 import Home from "./pages/Home/Home";
 import Movie from "./pages/Movie/Movie";
+import { Search } from "./pages";
 
 
 const App = () => {
@@ -26,7 +27,8 @@ const App = () => {
       <div className="movies-wrapper">
         <Routes>
           <Route exact path="/" element={<Home movies={movies} changePage={changePageNum} />} />
-          <Route exact path="/:type/:id" element={<Movie />} />
+          <Route path="/search" element={<Search />} />
+          <Route path="/:type/:id" element={<Movie />} />
         </Routes>
       </div>
     </div>

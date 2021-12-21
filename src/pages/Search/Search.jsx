@@ -17,24 +17,28 @@ const Search = () => {
   }, [dispatch, pageNum, searchText]);
 
   const changeSearchPageNum = (num) => {
+    window.scrollTo(0, 0);
     dispatch(setSearchPageNum(num));
   };
 
   return (
     <div className={style.mainMoviesWrapper}>
-      <h2 className={style.pageTitle}>Search Movies</h2>
+      <h2 className={style.pageTitle}>Search Movies: "{searchText}"</h2>
       {!isLoading ? (
-        <div className={style.movies}>
-          {movies && movies.map((movie) => <Card key={movie.id} {...movie} />)}
-        </div>
+        <>
+          <div className={style.movies}>
+            {movies &&
+              movies.map((movie) => <Card key={movie.id} {...movie} />)}
+          </div>
+          <Paginator
+            page={page}
+            totalPages={total_pages}
+            onChangedPage={changeSearchPageNum}
+          />
+        </>
       ) : (
         <Loader />
       )}
-      <Paginator
-        page={page}
-        totalPages={total_pages}
-        onChangedPage={changeSearchPageNum}
-      />
     </div>
   );
 };

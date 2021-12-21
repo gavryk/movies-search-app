@@ -24,6 +24,15 @@ export const saveSearchText = (text) => {
   }
 };
 
+export const getSrchTxt = () => {
+  try {
+    const txt = localStorage.getItem("search");
+    return JSON.parse(txt);
+  } catch (err) {
+    console.log(err);
+  }
+};
+
 export const setSearchMovies = (items) => {
   return {
     type: "SET_SEARCH",

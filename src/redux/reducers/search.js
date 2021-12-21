@@ -1,7 +1,9 @@
+import { getSrchTxt } from "../actions/search";
+
 const initState = {
   items: [],
   isLoading: true,
-  searchText: "",
+  searchText: getSrchTxt(),
   pageNum: 1,
 };
 

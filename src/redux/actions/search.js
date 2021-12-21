@@ -9,9 +9,19 @@ export const searchMovies = (searchText = "", pageNum = 1) => {
       .then(({ data }) => {
         dispatch(setSearchMovies(data));
         dispatch(setSearchLoad(false));
-
+        saveSearchText(searchText);
       });
   };
+};
+
+//Save in local storage, for refresh page
+export const saveSearchText = (text) => {
+  try {
+    const txt = JSON.stringify(text);
+    localStorage.setItem("search", txt);
+  } catch (err) {
+    //Ignore write errors.
+  }
 };
 
 export const setSearchMovies = (items) => {

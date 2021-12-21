@@ -11,7 +11,7 @@ import { Search } from "./pages";
 const App = () => {
   const dispatch = useDispatch();
   const movies = useSelector(({ movies }) => movies.items.results);
-  const pageNum = useSelector(({ movies }) => movies.pageNum);
+  const { pageNum, searchText } = useSelector(({ movies }) => movies);
 
   useEffect(() => {
     dispatch(fetchMovies(pageNum));
@@ -23,7 +23,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <Header pageNum={pageNum} />
+      <Header pageNum={pageNum} searchText={ searchText }/>
       <div className="movies-wrapper">
         <Routes>
           <Route exact path="/" element={<Home movies={movies} changePage={changePageNum} />} />

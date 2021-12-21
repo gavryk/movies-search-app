@@ -9,6 +9,7 @@ export const searchMovies = (searchText = "", pageNum = 1) => {
       .then(({ data }) => {
         dispatch(setSearchMovies(data));
         dispatch(setSearchLoad(false));
+
       });
   };
 };
@@ -39,4 +40,4 @@ export const setSearchText = (txt) => {
     type: "SET_SEARCH_TEXT",
     payload: txt
   }
-}
+};

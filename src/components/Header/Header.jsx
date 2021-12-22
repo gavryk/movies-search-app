@@ -5,7 +5,7 @@ import { setType } from "../../redux/actions/movies";
 import { setSearchPageNum, setSearchText } from "../../redux/actions/search";
 import style from "./Header.module.scss";
 
-const Header = ({ pageNum }) => {
+const Header = () => {
   const dispatch = useDispatch();
   let navigate = useNavigate();
   const [inputText, setInputText] = useState('');

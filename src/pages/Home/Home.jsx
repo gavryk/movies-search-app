@@ -9,7 +9,7 @@ const typesList = ["Movie", "TV shows"];
 
 const Home = ({ movies, changePage }) => {
     const dispatch = useDispatch();
-    const isLoading = useSelector(({ movies }) => movies.isLoading);
+    const {isLoading, mediaType } = useSelector(({ movies }) => movies);
     const { page, total_pages, total_results } = useSelector(({ movies }) => movies.items);
 
     const onClickType = (type) => {
@@ -18,12 +18,16 @@ const Home = ({ movies, changePage }) => {
 
     return (
       <div className={style.mainMoviesWrapper}>
-        <div className={ style.pageTitleBlock }>
+        <div className={style.pageTitleBlock}>
           <h2 className={style.pageTitle}>Trending Movies</h2>
-          <h4>Results: { total_results } movies</h4>
+          <h4>Results: {total_results} movies</h4>
         </div>
-        <div className={ style.typesList }>
-          <MediaTypes typesList={typesList} onClickType={ onClickType } />
+        <div className={style.typesList}>
+          <MediaTypes
+            activeType={mediaType}
+            typesList={typesList}
+            onClickType={onClickType}
+          />
         </div>
         {!isLoading ? (
           <div className={style.movies}>

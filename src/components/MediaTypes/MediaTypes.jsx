@@ -1,11 +1,12 @@
 import React from "react";
 import style from "./MediaTypes.module.scss";
 
-const MediaTypes = React.memo(({ activeCategory, typesList, onClickType }) => {
+const MediaTypes = React.memo(({ activeType, typesList, onClickType }) => {
+  console.log(activeType === 'all');
   return (
-    <ul>
+    <ul className={ style.typesList }>
       <li
-        className={`${style.btn} ${activeCategory === null && style.active}`}
+        className={`${style.btn} ${activeType === 'all' ? style.active : ''}`}
         onClick={() => onClickType("all")}
       >
         All
@@ -15,7 +16,7 @@ const MediaTypes = React.memo(({ activeCategory, typesList, onClickType }) => {
           return (
             <li
               className={`${style.btn} ${
-                activeCategory === index && style.active
+                activeType === cat.toLowerCase().replace("shows", "").trim() ? style.active : ''
               }`}
               onClick={() =>
                 onClickType(cat.toLowerCase().replace("shows", "").trim())

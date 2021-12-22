@@ -37,6 +37,7 @@ import axios from "axios";
     };
   };
 
+  
   export const setMovieInfo = (item) => {
     return {
       type: "SET_MOVIE_INFO",

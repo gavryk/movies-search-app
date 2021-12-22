@@ -4,7 +4,6 @@ const initState = {
   isLoading: true
 };
 
-
 const movie = (state = initState, action) => {
   switch (action.type) {
     case "SET_MOVIE_INFO":

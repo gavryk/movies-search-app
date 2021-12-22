@@ -6,12 +6,17 @@
   align-items: center;
   padding: 20px 30px;
   background-color: #4e5d6c;
+  @media screen and (max-width: 1024px) {
+    grid-template-columns: repeat(1, 300px);
+    justify-content: center;
+    text-align: center;
+  }
   .logo {
     text-decoration: none;
-    transition: all .4s ease-in-out;
+    transition: all 0.4s ease-in-out;
     display: inline-block;
     &:hover {
-      opacity: .6;
+      opacity: 0.6;
     }
     h2 {
       margin-bottom: 0;

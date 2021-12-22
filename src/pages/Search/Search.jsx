@@ -25,7 +25,7 @@ const Search = () => {
     <div className={style.mainMoviesWrapper}>
       <div className={style.pageTitleBlock}>
         <h2 className={style.pageTitle}>Search Movies: "{searchText}"</h2>
-        <h4>Results: {total_results} movies</h4>
+        <h4>Results: {total_results}</h4>
       </div>
       {!isLoading ? (
         <>

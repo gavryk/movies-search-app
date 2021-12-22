@@ -20,7 +20,7 @@ const Home = ({ movies, changePage }) => {
       <div className={style.mainMoviesWrapper}>
         <div className={style.pageTitleBlock}>
           <h2 className={style.pageTitle}>Trending Movies</h2>
-          <h4>Results: {total_results} movies</h4>
+          <h4>Results: {total_results}</h4>
         </div>
         <div className={style.typesList}>
           <MediaTypes

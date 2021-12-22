@@ -7,8 +7,22 @@
     align-items: center;
     grid-gap: 15px;
     margin-bottom: 40px;
+    @media screen and (max-width: 576px) {
+      grid-template-columns: repeat(1, 1fr);
+      justify-content: center;
+      text-align: center;
+    }
     h1 {
       font-size: 50px;
+      @media screen and (max-width: 1024px) {
+        font-size: 40px;
+      }
+      @media screen and (max-width: 768px) {
+        font-size: 34px;
+      }
+      @media screen and (max-width: 576px) {
+        font-size: 28px;
+      }
     }
     .rate {
       border: 1px solid rgb(20, 170, 20);
@@ -24,8 +38,18 @@
     display: grid;
     grid-template-columns: 400px auto;
     grid-gap: 15px;
+    @media screen and (max-width: 1024px) {
+      grid-template-rows: repeat(2, auto);
+      grid-template-columns: auto;
+      justify-content: center;
+    }
     .poster {
       position: relative;
+      @media screen and (max-width: 1024px) {
+        text-align: center;
+        max-width: 750px;
+        margin: 0 auto;
+      }
       img {
         max-width: 100%;
         object-fit: cover;
@@ -50,40 +74,40 @@
     }
 
     .about {
-        p {
-            font-size: 24px;
+      p {
+        font-size: 24px;
+      }
+      .genres {
+        padding: 0;
+        list-style: none;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        flex-direction: row;
+        h3 {
+          font-size: 22px;
+          margin-right: 10px;
+          margin-bottom: 0;
+          line-height: 1;
         }
-        .genres {
-          padding: 0;
-          list-style: none;
-          display: flex;
-          align-items: center;
-          justify-content: flex-start;
-          flex-wrap: wrap;
-          flex-direction: row;
-          h3 {
-            font-size: 22px;
-            margin-right: 10px;
-            margin-bottom: 0;
-            line-height: 1;
+        li {
+          font-size: 22px;
+          font-weight: 400;
+          margin-right: 10px;
+          line-height: 1;
+          position: relative;
+          &:after {
+            content: ",";
           }
-          li {
-            font-size: 22px;
-            font-weight: 400;
-            margin-right: 10px;
-            line-height: 1;
-            position: relative;
+          &:last-child {
+            margin-right: 0;
             &:after {
-              content: ',';
-            }
-            &:last-child {
-              margin-right: 0;
-              &:after {
-                display: none;
-              }
+              display: none;
             }
           }
         }
+      }
     }
   }
 }

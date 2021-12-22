@@ -1,17 +1,20 @@
 .typesList {
-    list-style: none;
-    padding: 15px 0;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    flex-direction: row;
+  list-style: none;
+  padding: 15px 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  flex-direction: row;
+  @media screen and (max-width: 1024px) {
+    justify-content: center;
+  }
   .btn {
     position: relative;
     padding: 7px 20px;
     border-radius: 15px;
     color: #4e5d6c;
-    transition: all .2s ease-in-out;
+    transition: all 0.2s ease-in-out;
     cursor: pointer;
     font-weight: 500;
     &.active {

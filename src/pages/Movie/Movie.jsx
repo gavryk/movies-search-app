@@ -35,6 +35,7 @@ const Movie = () => {
     dispatch(fetchMovieInfo(id, type));
     dispatch(getMovieVideo(id, type));
   }, [dispatch, id, type]);
+  
 
   return (
     <>

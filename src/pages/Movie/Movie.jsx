@@ -2,10 +2,11 @@ import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
-import { fetchMovieInfo } from "../../redux/actions/movie";
+import { fetchMovieInfo, getMovieVideo } from "../../redux/actions/movie";
 import style from "./Movie.module.scss";
 import noPoster from "../../assets/img/no-poster.jpg";
 import { Loader } from "../../components";
+// import ReactPlayer from "react-player/youtube";
 
 const urlPoster = "https://image.tmdb.org/t/p/w500";
 
@@ -13,7 +14,7 @@ const Movie = () => {
   const dispatch = useDispatch();
   const { id, type } = useParams();
   const movie = useSelector(({ movie }) => movie.item);
-  const isLoading = useSelector(({ movie }) => movie.isLoading);
+  const {isLoading} = useSelector(({ movie }) => movie);
   const releaseDate = new Date(movie.release_date);
   const monthNames = [
     "Jan",
@@ -32,6 +33,7 @@ const Movie = () => {
 
   useEffect(() => {
     dispatch(fetchMovieInfo(id, type));
+    dispatch(getMovieVideo(id, type));
   }, [dispatch, id, type]);
 
   return (
@@ -92,9 +94,32 @@ const Movie = () => {
                 </ul>
               )}
               {movie.release_date && (
-                <h4>Date: {`${releaseDate.getDate()} ${monthNames[releaseDate.getMonth()]} ${releaseDate.getFullYear()}`}</h4>
+                <h4>
+                  Date:{" "}
+                  {`${releaseDate.getDate()} ${
+                    monthNames[releaseDate.getMonth()]
+                  } ${releaseDate.getFullYear()}`}
+                </h4>
               )}
             </div>
+
+            {/* <div className={style.videosWrapper}>
+              {videos &&
+                videos.map((video) => (
+                  <div key={video.key} className={style.videoBlock}>
+                    <ReactPlayer
+                      url={`https://youtube.com/watch?v=${video.key}`}
+                      controls={true}
+                      playsinline
+                    />
+                    <div className={style.videoTitle}>
+                      <h4>
+                        {video.name}({video.type})
+                      </h4>
+                    </div>
+                  </div>
+                ))}
+            </div> */}
           </div>
         </div>
       ) : (

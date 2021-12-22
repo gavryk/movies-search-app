@@ -1,5 +1,6 @@
 const initState = {
   item: {},
+  videos: [],
   isLoading: true
 };
 
@@ -16,6 +17,11 @@ const movie = (state = initState, action) => {
         ...state,
         isLoading: action.payload,
       };
+    case "SET_MOVIE_VIDEO":
+      return {
+        ...state,
+        videos: action.payload
+      }
     default:
       return state;
   }

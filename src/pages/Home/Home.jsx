@@ -12,6 +12,7 @@ const Home = ({ movies, changePage }) => {
     const {isLoading, mediaType } = useSelector(({ movies }) => movies);
     const { page, total_pages, total_results } = useSelector(({ movies }) => movies.items);
 
+
     const onClickType = (type) => {
       dispatch(setType(type));
     }

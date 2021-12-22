@@ -2,7 +2,6 @@ import React from "react";
 import style from "./MediaTypes.module.scss";
 
 const MediaTypes = React.memo(({ activeType, typesList, onClickType }) => {
-  console.log(activeType === 'all');
   return (
     <ul className={ style.typesList }>
       <li

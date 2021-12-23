@@ -2,12 +2,13 @@ import axios from "axios";
 
 
   export const fetchMovieInfo = (id, type) => {
-    return async (dispatch) => {
+    return async (dispatch, getState) => {
+      const { appLang } = getState().settings;
       dispatch(setLoading(true));
       try {
         await axios
           .get(
-            `https://api.themoviedb.org/3/${type}/${id}?api_key=${process.env.REACT_APP_MOVIE_API_KEY}&language=en-US`
+            `https://api.themoviedb.org/3/${type}/${id}?api_key=${process.env.REACT_APP_MOVIE_API_KEY}&language=${appLang}`
           )
           .then(({ data }) => {
             dispatch(setMovieInfo(data));

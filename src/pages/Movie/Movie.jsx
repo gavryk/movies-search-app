@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
-import { fetchMovieInfo, getMovieVideo } from "../../redux/actions/movie";
+import { fetchMovieInfo } from "../../redux/actions/movie";
 import style from "./Movie.module.scss";
 import noPoster from "../../assets/img/no-poster.jpg";
 import { Loader } from "../../components";
@@ -33,7 +33,6 @@ const Movie = () => {
 
   useEffect(() => {
     dispatch(fetchMovieInfo(id, type));
-    dispatch(getMovieVideo(id, type));
   }, [dispatch, id, type]);
 
 

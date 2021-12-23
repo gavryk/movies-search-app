@@ -3,9 +3,11 @@ import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { setType } from "../../redux/actions/movies";
 import { setSearchPageNum, setSearchText } from "../../redux/actions/search";
+import { saveLang } from "../../redux/actions/settings";
+import Lang from "../Lang/Lang";
 import style from "./Header.module.scss";
 
-const Header = () => {
+const Header = ({ lang }) => {
   const dispatch = useDispatch();
   let navigate = useNavigate();
   const [inputText, setInputText] = useState('');
@@ -34,6 +36,10 @@ const Header = () => {
     }
   }
 
+  const handleLang = (lang) => {
+    dispatch(saveLang(lang));
+  }
+
   return (
     <div className={style.header}>
       <Link to="/" onClick={goHome} className={style.logo}>
@@ -58,6 +64,7 @@ const Header = () => {
           Search
         </button>
       </div>
+      <Lang lang={lang} setLang={handleLang} />
     </div>
   );
 };

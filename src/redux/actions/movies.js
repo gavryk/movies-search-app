@@ -1,10 +1,11 @@
 import axios from "axios";
 
 export const fetchMovies = (mediaType, pageNum) => {
-  return async (dispatch) => {
+  return async (dispatch, getState) => {
+    const { appLang } = getState().settings;
     await axios
       .get(
-        `https://api.themoviedb.org/3/trending/${mediaType}/week?api_key=${ process.env.REACT_APP_MOVIE_API_KEY }&language=en&page=${pageNum}`
+        `https://api.themoviedb.org/3/trending/${mediaType}/week?api_key=${process.env.REACT_APP_MOVIE_API_KEY}&language=${appLang}&page=${pageNum}`
       )
       .then(({ data }) => {
         dispatch(setMovies(data));

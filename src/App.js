@@ -10,11 +10,12 @@ import { Search } from "./pages";
 const App = () => {
   const dispatch = useDispatch();
   const movies = useSelector(({ movies }) => movies.items.results);
-  const { pageNum, searchText, mediaType } = useSelector(({ movies }) => movies);
+  const { pageNum, mediaType } = useSelector(({ movies }) => movies);
+  const { appLang } = useSelector(({ settings }) => settings);
 
   useEffect(() => {
     dispatch(fetchMovies(mediaType, pageNum));
-  }, [dispatch, pageNum, mediaType]);
+  }, [dispatch, pageNum, mediaType, appLang]);
 
   const changePageNum = (num) => {
     window.scrollTo(0, 0);
@@ -23,7 +24,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <Header pageNum={pageNum} searchText={ searchText }/>
+      <Header lang={appLang}/>
       <div className="movies-wrapper">
         <Routes>
           <Route exact path="/" element={<Home movies={movies} changePage={changePageNum} />} />

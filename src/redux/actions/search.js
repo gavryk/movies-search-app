@@ -1,10 +1,11 @@
 import axios from "axios";
 
 export const searchMovies = (searchText = "", pageNum = 1) => {
-  return async (dispatch) => {
+  return async (dispatch, getState) => {
+    const { appLang } = getState().settings;
     await axios
       .get(
-        `https://api.themoviedb.org/3/search/multi?api_key=${process.env.REACT_APP_MOVIE_API_KEY}&language=en&query=${searchText}&page=${pageNum}`
+        `https://api.themoviedb.org/3/search/multi?api_key=${process.env.REACT_APP_MOVIE_API_KEY}&language=${appLang}&query=${searchText}&page=${pageNum}`
       )
       .then(({ data }) => {
         dispatch(setSearchMovies(data));

@@ -14,12 +14,16 @@ const Card = ({id, poster_path, title, name, vote_average, overview, media_type}
           className="card-img-top"
           alt="..."
         />
+        <span
+          className={`${style.rate} ${
+            vote_average < 7 && vote_average > 4 ? style.yellow : style.green
+          } ${vote_average < 4 ? style.red : ''}`}
+        >
+          {vote_average}
+        </span>
       </div>
       <div className="card-body">
-        <h5 className={style.title}>
-          {title ? title : name}
-          <span className={style.rate}>Rate: {vote_average}</span>
-        </h5>
+        <h5 className={style.title}>{title ? title : name}</h5>
         <p className="card-text">{overview}</p>
       </div>
     </Link>

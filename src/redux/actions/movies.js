@@ -1,8 +1,8 @@
 import axios from "axios";
 
 export const fetchMovies = (mediaType, pageNum) => {
-  return (dispatch) => {
-    axios
+  return async (dispatch) => {
+    await axios
       .get(
         `https://api.themoviedb.org/3/trending/${mediaType}/week?api_key=efea5188a7f43aa1303c12cb1ad8a604&language=en&page=${pageNum}`
       )

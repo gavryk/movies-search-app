@@ -4,6 +4,8 @@
   text-decoration: none;
   color: #000;
   transition: all .4s ease-in-out;
+  border-radius: 10px;
+  overflow: hidden;
   &:hover {
     color: #000;
     box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.2);
@@ -16,6 +18,35 @@
   .cardImage {
     overflow: hidden;
     height: auto;
+    position: relative;
+    .rate {
+      // border: 1px solid rgb(12, 185, 12);
+      background-color: rgb(12, 185, 12);
+      border-radius: 50%;
+      color: #fff;
+      padding: 5px;
+      text-align: center;
+      font-size: 18px;
+      width: 40px;
+      height: 40px;
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      flex-direction: row;
+      &.green {
+        background-color: rgb(12, 185, 12);
+      }
+      &.yellow {
+        background-color: rgb(255, 168, 6);
+      }
+      &.red {
+        background-color: rgb(255, 1, 1);
+      }
+    }
     img {
       transition: all .6s ease-in-out;
       height: 100%;
@@ -24,16 +55,8 @@
     }
   }
   .title {
-    display: grid;
-    grid-template-columns: auto 120px;
-    grid-gap: 10px;
-    align-items: center;
-    .rate {
-      border: 1px solid rgb(12, 185, 12);
-      color: rgb(12, 185, 12);
-      padding: 5px;
-      text-align: center;
-      font-size: 16px;
-    }
+    text-align: left;
+    border-bottom: 1px solid rgba(202, 201, 201, 0.486);
+    padding-bottom: 10px;
   }
 }

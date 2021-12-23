@@ -2,10 +2,10 @@ import axios from "axios";
 
 
   export const fetchMovieInfo = (id, type) => {
-    return (dispatch) => {
+    return async (dispatch) => {
       dispatch(setLoading(true));
       try {
-        axios
+        await axios
         .get(
           `https://api.themoviedb.org/3/${type}/${id}?api_key=efea5188a7f43aa1303c12cb1ad8a604&language=en-US`
         )
@@ -20,10 +20,10 @@ import axios from "axios";
   };
 
   export const getMovieVideo = (id, type) => {
-    return (dispatch) => {
+    return async (dispatch) => {
       dispatch(setLoading(true));
       try {
-        axios
+        await axios
           .get(
             `https://api.themoviedb.org/3/${type}/${id}/videos?api_key=efea5188a7f43aa1303c12cb1ad8a604&language=en`
           )

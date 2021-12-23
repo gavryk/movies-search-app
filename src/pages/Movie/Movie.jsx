@@ -35,7 +35,7 @@ const Movie = () => {
     dispatch(fetchMovieInfo(id, type));
     dispatch(getMovieVideo(id, type));
   }, [dispatch, id, type]);
-  
+
 
   return (
     <>
@@ -106,20 +106,32 @@ const Movie = () => {
 
             {/* <div className={style.videosWrapper}>
               {videos &&
-                videos.map((video) => (
-                  <div key={video.key} className={style.videoBlock}>
-                    <ReactPlayer
-                      url={`https://youtube.com/watch?v=${video.key}`}
-                      controls={true}
-                      playsinline
-                    />
-                    <div className={style.videoTitle}>
-                      <h4>
-                        {video.name}({video.type})
-                      </h4>
+                videos.map((video) => {
+                  let videoUrl = `https://youtube.com/watch?v=${video.key}`;
+                  return (
+                    <div key={video.key} className={style.videoBlock}>
+                      <ReactPlayer
+                        url={
+                          videoUrl.includes("/watch?v=")
+                            ? videoUrl.replace("/watch?v=", "/embed/")
+                            : videoUrl
+                        }
+                        controls={true}
+                        playsinline
+                        config={{
+                          youtube: {
+                            playerVars: { origin: "https://www.youtube.com" },
+                          },
+                        }}
+                      />
+                      <div className={style.videoTitle}>
+                        <h4>
+                          {video.name}({video.type})
+                        </h4>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
             </div> */}
           </div>
         </div>

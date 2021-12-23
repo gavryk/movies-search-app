@@ -26,6 +26,7 @@ const Search = () => {
       <div className={style.pageTitleBlock}>
         <h2 className={style.pageTitle}>Search Movies: "{searchText}"</h2>
         <h4>Results: {total_results}</h4>
+        <h3>{process.env.REACT_APP_MOVIE_API_KEY}</h3>
       </div>
       {!isLoading ? (
         <>

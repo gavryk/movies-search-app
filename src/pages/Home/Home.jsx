@@ -11,6 +11,7 @@ const Home = ({ movies, changePage }) => {
     const dispatch = useDispatch();
     const {isLoading, mediaType } = useSelector(({ movies }) => movies);
     const { page, total_pages, total_results } = useSelector(({ movies }) => movies.items);
+    const { appLang } = useSelector(({settings}) => settings)
 
 
     const onClickType = (type) => {

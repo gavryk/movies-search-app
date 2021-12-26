@@ -11,8 +11,6 @@ const Home = ({ movies, changePage }) => {
     const dispatch = useDispatch();
     const {isLoading, mediaType } = useSelector(({ movies }) => movies);
     const { page, total_pages, total_results } = useSelector(({ movies }) => movies.items);
-    const { appLang } = useSelector(({settings}) => settings)
-
 
     const onClickType = (type) => {
       dispatch(setType(type));
@@ -21,7 +19,7 @@ const Home = ({ movies, changePage }) => {
     return (
       <div className={style.mainMoviesWrapper}>
         <div className={style.pageTitleBlock}>
-          <h2 className={style.pageTitle}>Trending Movies</h2>
+          <h2 className={style.pageTitle}>Tranding {mediaType === 'all' ? 'Movies/Tv Shows' : (mediaType === 'movie' ? 'Movies' : 'TV Shows' ) }</h2>
           <h4>Results: {total_results}</h4>
         </div>
         <div className={style.typesList}>

@@ -26,7 +26,7 @@ const Card = ({id, poster_path, title, name, vote_average, overview, media_type}
       </div>
       <div className="card-body">
         <h5 className={style.title}>{title ? title : name}</h5>
-        <p className="card-text">{overview}</p>
+        <p className="card-text">{`${overview.substring(0, 200)}...`}</p>
       </div>
     </Link>
   );

@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+import { Lang } from "..";
 import { setType } from "../../redux/actions/movies";
 import { setSearchPageNum, setSearchText } from "../../redux/actions/search";
 import { saveLang } from "../../redux/actions/settings";
-import Lang from "../Lang/Lang";
 import style from "./Header.module.scss";
 
 const Header = ({ lang }) => {

@@ -2,7 +2,7 @@ const initState = {
   items: [],
   isLoading: true,
   pageNum: 1,
-  mediaType: 'all'
+  mediaType: "all",
 };
 
 const movies = (state = initState, action) => {
@@ -20,13 +20,18 @@ const movies = (state = initState, action) => {
     case "SET_PAGE_NUM":
       return {
         ...state,
-        pageNum: action.payload
-      }  
+        pageNum: action.payload,
+      };
     case "SET_TYPE":
       return {
         ...state,
-        mediaType: action.payload
-      };  
+        mediaType: action.payload,
+      };
+    case "SET_SORT":
+      return {
+        ...state,
+        sortBy: action.payload,
+      };
     default:
       return state;
   }

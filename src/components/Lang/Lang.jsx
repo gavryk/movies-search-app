@@ -15,7 +15,7 @@ const langsList = [
 const Lang = React.memo(({ lang, setLang }) => {
   const [visibleLangs, setVisibleLangs] = useState(false);
   let activeLang = langsList.find((obj) => obj.value === lang);
-  const sortRef = useRef();
+  const langRef = useRef();
 
   const toggleVisibleList = () => {
     setVisibleLangs(!visibleLangs);
@@ -28,7 +28,7 @@ const Lang = React.memo(({ lang, setLang }) => {
 
   const clickOffLangsPopup = (event) => {
     let path = event.path || (event.composedPath && event.composedPath());
-    if (!path.includes(sortRef.current)) {
+    if (!path.includes(langRef.current)) {
       setVisibleLangs(false);
     }
   };
@@ -38,7 +38,7 @@ const Lang = React.memo(({ lang, setLang }) => {
   }, []);
 
   return (
-    <div ref={sortRef} className={style.dropdown}>
+    <div ref={langRef} className={style.dropdown}>
       <div className={style.langLabel}>
         <span
           onClick={toggleVisibleList}

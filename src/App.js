@@ -14,7 +14,7 @@ const App = () => {
   const { appLang } = useSelector(({ settings }) => settings);
 
   useEffect(() => {
-    dispatch(fetchMovies(mediaType, pageNum));
+    dispatch(fetchMovies());
   }, [dispatch, pageNum, mediaType, appLang]);
 
   const changePageNum = (num) => {

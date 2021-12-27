@@ -3,7 +3,7 @@ import style from './Home.module.scss';
 import { Card, Loader, MediaTypes, Paginator } from "../../components";
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { setType } from '../../redux/actions/movies';
+import { setType, sortMovies } from '../../redux/actions/movies';
 
 const typesList = ["Movie", "TV shows"];
 
@@ -16,11 +16,15 @@ const Home = ({ movies, changePage }) => {
       dispatch(setType(type));
     }
 
+    const sort = () => {
+      dispatch(sortMovies(mediaType));
+    }
+
     return (
       <div className={style.mainMoviesWrapper}>
         <div className={style.pageTitleBlock}>
           <h2 className={style.pageTitle}>Tranding {mediaType === 'all' ? 'Movies/Tv Shows' : (mediaType === 'movie' ? 'Movies' : 'TV Shows' ) }</h2>
-          <h4>Results: {total_results}</h4>
+          <button onClick={sort}>Sort</button>
         </div>
         <div className={style.typesList}>
           <MediaTypes

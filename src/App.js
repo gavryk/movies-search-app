@@ -21,6 +21,7 @@ const App = () => {
     window.scrollTo(0, 0);
     dispatch(setPageNum(num));
   }
+  
 
   return (
     <div className="App">

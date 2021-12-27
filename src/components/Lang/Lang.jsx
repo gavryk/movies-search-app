@@ -12,7 +12,7 @@ const langsList = [
   { label: "PL", value: "pl-PL", flag: <Flags.PL /> },
 ];
 
-const Lang = React.memo(({ lang, setLang }) => {
+const Lang = ({ lang, setLang }) => {
   const [visibleLangs, setVisibleLangs] = useState(false);
   let activeLang = langsList.find((obj) => obj.value === lang);
   const langRef = useRef();
@@ -77,6 +77,6 @@ const Lang = React.memo(({ lang, setLang }) => {
       </ul>
     </div>
   );
-});
+};
 
 export default Lang;

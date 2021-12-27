@@ -8,7 +8,7 @@ import axios from "axios";
       try {
         await axios
           .get(
-            `https://api.themoviedb.org/3/${type}/${id}?api_key=${process.env.REACT_APP_MOVIE_API_KEY}&language=${appLang}`
+            `https://api.themoviedb.org/3/${type}/${id}?api_key=efea5188a7f43aa1303c12cb1ad8a604&language=${appLang}`
           )
           .then(({ data }) => {
             dispatch(setMovieInfo(data));
@@ -26,7 +26,7 @@ import axios from "axios";
       try {
         await axios
           .get(
-            `https://api.themoviedb.org/3/${type}/${id}/videos?api_key=${process.env.REACT_APP_MOVIE_API_KEY}&language=en`
+            `https://api.themoviedb.org/3/${type}/${id}/videos?api_key=efea5188a7f43aa1303c12cb1ad8a604&language=en`
           )
           .then(({ data }) => {
             dispatch(setMovieVideo(data.results));

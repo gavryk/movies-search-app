@@ -11,7 +11,7 @@ const App = () => {
   const dispatch = useDispatch();
   const movies = useSelector(({ movies }) => movies.items.results);
   const { pageNum, mediaType } = useSelector(({ movies }) => movies);
-  const { appLang } = useSelector(({ settings }) => settings);
+  const { appLang } = useSelector(({ settings }) => settings);  
 
   useEffect(() => {
     dispatch(fetchMovies());
@@ -21,7 +21,7 @@ const App = () => {
     window.scrollTo(0, 0);
     dispatch(setPageNum(num));
   }
-  
+
 
   return (
     <div className="App">

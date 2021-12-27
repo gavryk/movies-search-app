@@ -1,7 +1,7 @@
 import { getLang } from "../actions/settings";
 
 const initState = {
-  appLang: getLang(),
+  appLang: getLang() || 'en-US',
 };
 
 const settings = (state = initState, action) => {

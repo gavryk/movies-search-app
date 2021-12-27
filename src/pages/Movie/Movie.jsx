@@ -16,6 +16,7 @@ const Movie = () => {
   const movie = useSelector(({ movie }) => movie.item);
   const {isLoading} = useSelector(({ movie }) => movie);
   const releaseDate = new Date(movie.release_date);
+  const { appLang } = useSelector(({ settings }) => settings);
   const monthNames = [
     "Jan",
     "Feb",
@@ -33,7 +34,7 @@ const Movie = () => {
 
   useEffect(() => {
     dispatch(fetchMovieInfo(id, type));
-  }, [dispatch, id, type]);
+  }, [dispatch, id, type, appLang]);
 
 
   return (

@@ -11,10 +11,11 @@ const Search = () => {
   const searchText = useSelector(({ search }) => search.searchText);
   const pageNum = useSelector(({ search }) => search.pageNum);
   const { page, total_pages, total_results } = useSelector(({ search }) => search.items);
+  const { appLang } = useSelector(({ settings }) => settings);
 
   useEffect(() => {
     dispatch(searchMovies(searchText, pageNum));
-  }, [dispatch, pageNum, searchText]);
+  }, [dispatch, pageNum, searchText, appLang]);
 
   const changeSearchPageNum = (num) => {
     window.scrollTo(0, 0);
